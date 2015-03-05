@@ -12,16 +12,19 @@ CC7 machines are recommended for using amico. It is recommended that amico be us
 
 ```Bash
 ssh ${USER}@lxplus7.cern.ch
+git clone https://github.com/wdbm/amico.git
+cd amico
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 source $ATLAS_LOCAL_ROOT_BASE/user/atlasLocalSetup.sh
 voms-proxy-init -voms atlas
 localSetupPyAMI
+python amico.py --help
 ```
 
 A description of amico options is presented by requesting help:
 
 ```Bash
-python --help
+python amico.py --help
 ```
 
 The form of an amico comparison run could be something such as the following:
