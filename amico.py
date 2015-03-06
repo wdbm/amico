@@ -41,7 +41,7 @@ Options:
 """
 
 name    = "amico"
-version = "2015-03-04T2245Z"
+version = "2015-03-06T2045Z"
 logo    =\
 """                    _           
    ____ _____ ___  (_)________  
@@ -294,6 +294,7 @@ class Program(object):
             name = self.name
         ))
         pyprel.printLine()
+        sys.exit()
 
 @shijian.timer
 def pyAMI_auditor():
