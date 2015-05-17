@@ -41,7 +41,7 @@ Options:
 """
 
 name    = "amico"
-version = "2015-03-06T2045Z"
+version = "2015-04-27T0949Z"
 logo    =\
 """                    _           
    ____ _____ ___  (_)________  
@@ -49,32 +49,9 @@ logo    =\
  / /_/ / / / / / / / /__/ /_/ / 
  \__,_/_/ /_/ /_/_/\___/\____/  """
 
-def smuggle(
-    moduleName = None,
-    URL        = None
-    ):
-    if moduleName is None:
-        moduleName = URL
-    try:
-        module = __import__(moduleName)
-        return(module)
-    except:
-        try:
-            moduleString = urllib.urlopen(URL).read()
-            module = imp.new_module("module")
-            exec moduleString in module.__dict__
-            return(module)
-        except: 
-            raise(
-                Exception(
-                    "module {moduleName} import error".format(
-                        moduleName = moduleName
-                    )
-                )
-            )
-            sys.exit()
-
+import smuggle # http://cern.ch/go/PG8f
 import os
+import sys
 import logging
 from collections import *
 import urllib
@@ -82,19 +59,19 @@ import imp
 import pyAMI
 import pyAMI.client
 import pyAMI.atlas.api
-docopt = smuggle(
+docopt = smuggle.smuggle(
     moduleName = "docopt",
     URL = "https://rawgit.com/docopt/docopt/master/docopt.py"
 )
-technicolor = smuggle(
+technicolor = smuggle.smuggle(
     moduleName = "technicolor",
     URL = "https://rawgit.com/wdbm/technicolor/master/technicolor.py"
 )
-shijian = smuggle(
+shijian = smuggle.smuggle(
     moduleName = "shijian",
     URL = "https://rawgit.com/wdbm/shijian/master/shijian.py"
 )
-pyprel = smuggle(
+pyprel = smuggle.smuggle(
     moduleName = "pyprel",
     URL = "https://rawgit.com/wdbm/pyprel/master/pyprel.py"
 )
